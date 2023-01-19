@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./LogoutLink";
+import { ProductsNew } from "./ProductsNew";
 
 
 export function Content() {
@@ -26,6 +27,9 @@ export function Content() {
       <Signup />
       <hr />
       <LogoutLink />
+      <br/>
+      <hr />
+      <ProductsNew />
       <br/>
       <hr />
       <ProductsIndex products={products}/>
