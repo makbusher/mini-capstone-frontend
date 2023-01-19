@@ -4,6 +4,20 @@ import { useState } from "react";
 export function Signup() {
   const [errors, setErrors] = useState([]);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setErrors([]);
+    const params = new FormData(event.target);
+    axios.post("http://localhost:3000/users.json", params).then((response) => {
+      console.log(response.data);
+      event.target.reset();
+    })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+        setErrors(error.response.data.errors);
+      });
+  };
+
   return (
     <div id="signup">
       <h1>Signup</h1>
@@ -12,7 +26,7 @@ export function Signup() {
           <li key={error}>{error}</li>
         ))}
       </ul>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           Name: <input name="name" type="text" />
         </div>
