@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 
 export function Content() {
@@ -21,7 +22,10 @@ export function Content() {
   return (
     <div>
       <Login />
+      <hr/>
       <Signup />
+      <hr />
+      <LogoutLink />
       <br/>
       <hr />
       <ProductsIndex products={products}/>
