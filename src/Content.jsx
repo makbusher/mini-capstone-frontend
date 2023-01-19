@@ -1,6 +1,8 @@
 import { ProductsIndex } from "./ProductsIndex";
 import axios from 'axios';
 import { useState, useEffect } from "react";
+import { Signup } from "./Signup";
+
 
 export function Content() {
   const [products, setProducts] = useState([]);
@@ -17,6 +19,9 @@ export function Content() {
 
   return (
     <div>
+      <Signup />
+      <br/>
+      <hr />
       <ProductsIndex products={products}/>
     </div>
   );

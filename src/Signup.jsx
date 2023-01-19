@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import { buildErrorMessage } from "vite";
 
 export function Signup() {
   const [errors, setErrors] = useState([]);
@@ -29,5 +28,6 @@ export function Signup() {
         <button type="submit">Signup</button>
       </form>
     </div>
-  );
+  )
 }
+
