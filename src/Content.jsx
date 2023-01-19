@@ -18,6 +18,14 @@ export function Content() {
     });
   };
 
+  const handleCreateProduct = (params, successCallback) => {
+    console.log("handleCreateProduct", params);
+    axios.post("http://localhost:3000/products.json", params).then((response) => {
+      setProducts([...products, response.data]);
+      successCallback();
+    });
+  };
+
   useEffect(handleProductsIndex, []);
 
   return (
@@ -29,7 +37,7 @@ export function Content() {
       <LogoutLink />
       <br/>
       <hr />
-      <ProductsNew />
+      <ProductsNew onCreateProduct={handleCreateProduct} />
       <br/>
       <hr />
       <ProductsIndex products={products}/>
